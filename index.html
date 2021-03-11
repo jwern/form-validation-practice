@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shy Guy Fry Time Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./style.css" type="text/css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  </head>
+  <body>
+    <div class="explanation">
+      Sign up to receive updates and be informed when the <span class="product">Shy Guy Fry Time Air Fryer&trade;</span> is available in your region!
+    </div>
+    <div id="form-container">
+      <!-- Email, Country, Zip Code, Password and Password Confirmation -->
+      <form id="user-info" novalidate>
+        <div class="input-group">
+          <label for="mail">Email</label>
+          <input type="email" name="email" id="mail" required>
+          <span id="email-error" class="error" aria-live="polite"></span>
+        </div>
+        <div class="input-group">
+          <label for="country">Country</label>
+          <input type="text" name="country" id="country">
+          <span id="country-error" class="error" aria-live="polite"></span>
+        </div>
+        <div class="input-group">
+          <label for="zip">Zip Code</label>
+          <input type="text" name="zip-code" id="zip">
+          <span id="zip-error" class="error" aria-live="polite"></span>
+        </div>
+        <div class="input-group">
+          <label for="pass">Password</label>
+          <input type="password" name="password" id="pass" required>
+          <span id="pass-error" class="error" aria-live="polite"></span>
+        </div>
+        <div class="input-group">
+          <label for="pass-confirm">Confirm Password</label>
+          <input type="password" name="password-confirm" id="pass-confirm" required>
+          <span id="confirm-pass-error" class="error" aria-live="polite"></span>
+        </div>
+        <div class="input-group">
+          <input type="submit" id="submit-button" value="Submit Info">
+          <div id="submit-error" class="error" aria-live="polite"></div>
+        </div>
+      </form>
+    </div>
+    <script type="text/javascript" src="./index.js"></script>
+  </body>
+</html>
