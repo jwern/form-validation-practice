@@ -95,7 +95,7 @@ const checkForm = function(event) {
     }
 
     if (!inputValid) {
-      errors.push(`Error: invalid ${input.name} input`);
+      errors.push(`Invalid ${input.name} field`);
     }
   });
 
