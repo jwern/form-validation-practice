@@ -13,30 +13,30 @@
     </div>
     <div id="form-container">
       <!-- Email, Country, Zip Code, Password and Password Confirmation -->
-      <form id="user-info" novalidate>
+      <form id="user-info" method="post" novalidate>
         <div class="input-group">
-          <label for="mail">Email</label>
-          <input type="email" name="email" id="mail" required>
+          <label for="mail">Email <span class="required">(required)</span></label>
+          <input type="email" name="email" id="mail" class="user-input" required>
           <span id="email-error" class="error" aria-live="polite"></span>
         </div>
         <div class="input-group">
           <label for="country">Country</label>
-          <input type="text" name="country" id="country">
+          <input type="text" name="country" id="country" class="user-input" pattern="^[A-Za-z\s]*$">
           <span id="country-error" class="error" aria-live="polite"></span>
         </div>
         <div class="input-group">
           <label for="zip">Zip Code</label>
-          <input type="text" name="zip-code" id="zip">
+          <input type="text" name="zipcode" id="zip" class="user-input" minlength="5" maxlength="5" pattern="^[0-9]*$">
           <span id="zip-error" class="error" aria-live="polite"></span>
         </div>
         <div class="input-group">
-          <label for="pass">Password</label>
-          <input type="password" name="password" id="pass" required>
+          <label for="pass">Password <span class="required">(required)</span></label>
+          <input type="password" name="password" id="pass" class="user-input" pattern="^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$" required>
           <span id="pass-error" class="error" aria-live="polite"></span>
         </div>
         <div class="input-group">
-          <label for="pass-confirm">Confirm Password</label>
-          <input type="password" name="password-confirm" id="pass-confirm" required>
+          <label for="pass-confirm">Confirm Password <span class="required">(required)</span></label>
+          <input type="password" name="password-confirm" id="pass-confirm" class="user-input" required>
           <span id="confirm-pass-error" class="error" aria-live="polite"></span>
         </div>
         <div class="input-group">

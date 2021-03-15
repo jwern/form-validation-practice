@@ -9,13 +9,43 @@
   padding: 8px 40px;
   position: relative;
 }
+span.required {
+  color: red;
+}
 .product {
   font-weight: 900;
 }
 .error {
   position: absolute;
-  right: 0;
+  right: -2px;
   top: 50%;
-  transform: translate(50%, -50%);
+  transform: translate(100%, -50%);
   color: red;
+}
+#submit-error {
+  top: 100%;
+  right: unset;
+  transform: unset;
+}
+input {
+  box-sizing: content-box;
+  border: 1px solid gray;
+  border-radius: 3px;
+  font-size: 1rem;
+}
+input:invalid {
+  border: 1px solid red;
+}
+
+@media screen and (max-width: 768px) {
+  .input-group {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .error {
+    position: relative;
+    right: unset;
+    top: unset;
+    transform: unset;
+  }
 }
