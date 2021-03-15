@@ -33,6 +33,7 @@
         </div>
         <div class="input-group">
           <label for="pass">Password <span class="required">(required)</span></label>
+          <!-- Password regex pattern adapted from https://stackoverflow.com/a/33292812/12183520 -->
           <input type="password" name="password" id="pass" class="user-input" pattern="^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$" placeholder="" required>
           <span id="pass-error" class="error" aria-live="polite"></span>
         </div>

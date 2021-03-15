@@ -116,8 +116,14 @@ const assignListeners = function() {
     form.addEventListener('submit', event => checkForm(event));
     // "change" listener will check only when 
     // an input value is changed and the user has unfocused the input
-    // Was previously using "input" listener 
-    // which checked every time the input changed, even mid-typing
-    getInputs().forEach(input => input.addEventListener('change', checkValidity));
+    // "input" listener checks every time 
+    // the input is changed, even mid-typing
+    getInputs().forEach(input => {
+      if (input.type === "password") {
+        input.addEventListener('input', checkValidity);
+      } else {
+        input.addEventListener('change', checkValidity);
+      }
+    });
   }
 }();
