@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="./style.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;800&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   </head>
   <body>
@@ -16,7 +18,7 @@
       <form id="user-info" method="post" novalidate>
         <div class="input-group">
           <label for="mail">Email <span class="required">(required)</span></label>
-          <input type="email" name="email" id="mail" class="user-input" required>
+          <input type="email" name="email" id="mail" class="user-input" placeholder=" " required>
           <span id="email-error" class="error" aria-live="polite"></span>
         </div>
         <div class="input-group">
@@ -31,12 +33,12 @@
         </div>
         <div class="input-group">
           <label for="pass">Password <span class="required">(required)</span></label>
-          <input type="password" name="password" id="pass" class="user-input" pattern="^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$" required>
+          <input type="password" name="password" id="pass" class="user-input" pattern="^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$" placeholder="" required>
           <span id="pass-error" class="error" aria-live="polite"></span>
         </div>
         <div class="input-group">
           <label for="pass-confirm">Confirm Password <span class="required">(required)</span></label>
-          <input type="password" name="password-confirm" id="pass-confirm" class="user-input" required>
+          <input type="password" name="password-confirm" id="pass-confirm" class="user-input" placeholder="" required>
           <span id="confirm-pass-error" class="error" aria-live="polite"></span>
         </div>
         <div class="input-group">

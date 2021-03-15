@@ -59,6 +59,24 @@ const clearErrorsDiv = function() {
   return errorsDiv;
 }
 
+const displayThankYou = function() {
+  const container = document.getElementById('form-container');
+  while (container.lastChild) {
+    container.removeChild(container.lastChild);
+  }
+
+  const thankYouDiv = document.createElement('div');
+  const thankYouMessage = document.createElement('p');
+  const thankYouImage = document.createElement('img');
+
+  thankYouMessage.textContent = "Thank you for signing up!  Shy Guy will be in touch soon."
+  thankYouImage.src = "images/shy_guy_large.png";
+
+  thankYouDiv.append(thankYouMessage);
+  thankYouDiv.append(thankYouImage);
+  container.append(thankYouDiv);
+}
+
 const checkForm = function(event) {
   const inputs = form.querySelectorAll('input');
   const submitErrorDiv = clearErrorsDiv();
@@ -83,6 +101,8 @@ const checkForm = function(event) {
       errDiv.textContent = err;
       submitErrorDiv.append(errDiv);
     });
+  } else {
+    displayThankYou();
   }
 }
 

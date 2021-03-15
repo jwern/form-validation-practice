@@ -1,12 +1,24 @@
-.explanation {
+html {
+  font-size: 22px;
+}
+body {
+  font-size: 1rem;
+  font-family: "Mukta", sans-serif;
+}
+.explanation,
+#form-container {
   padding: 40px;
+}
+img {
+  max-width: 100%;
 }
 .input-group {
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   max-width: 600px;
-  padding: 8px 40px;
+  padding: 8px 0;
+  padding-right: 20px;
   position: relative;
 }
 span.required {
@@ -21,6 +33,7 @@ span.required {
   top: 50%;
   transform: translate(100%, -50%);
   color: red;
+  font-size: 0.8rem;
 }
 #submit-error {
   top: 100%;
@@ -31,13 +44,20 @@ input {
   box-sizing: content-box;
   border: 1px solid gray;
   border-radius: 3px;
-  font-size: 1rem;
+  font-size: 0.75rem;
 }
-input:invalid {
+input:required,
+input:valid {
+  border: 1px solid gray;
+}
+input:invalid:not(:focus):not(:placeholder-shown) {
   border: 1px solid red;
 }
 
 @media screen and (max-width: 768px) {
+  html {
+    font-size: 18px;
+  }
   .input-group {
     flex-wrap: wrap;
     flex-direction: column;
