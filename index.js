@@ -1,19 +1,15 @@
-const form = document.getElementById('user-info');
-const emailInput = form.querySelector('#mail');
-const inputs = form.querySelectorAll('.user-input');
+const getForm = function() {
+  return document.getElementById('user-info');
+}
+
+const getInputs = function() {
+  return getForm().querySelectorAll('input');
+}
 
 const fillErrorSpan = function(input, message) {
   const inputErrorSpan = input.closest('.input-group').querySelector('.error');
   inputErrorSpan.textContent = `${message}`;
 }
-
-// const showEmailErrors = function(invalidInput) {
-//   fillErrorSpan(invalidInput, "Please enter a valid email");
-// }
-
-// const showZipErrors = function(invalidInput) {
-//   fillErrorSpan(invalidInput, "Please enter a 5-digit zip code");
-// }
 
 const clearErrorMessages = function(validInput) {
   fillErrorSpan(validInput, "");
@@ -51,7 +47,7 @@ const checkValidity = function() {
 }
 
 const clearErrorsDiv = function() {
-  const errorsDiv = form.querySelector('#submit-error');
+  const errorsDiv = getForm().querySelector('#submit-error');
   while (errorsDiv.lastChild) {
     errorsDiv.removeChild(errorsDiv.lastChild);
   }
@@ -77,9 +73,18 @@ const displayThankYou = function() {
   container.append(thankYouDiv);
 }
 
-const checkForm = function(event) {
-  const inputs = form.querySelectorAll('input');
+const appendErrors = function(errors) {
   const submitErrorDiv = clearErrorsDiv();
+
+  errors.forEach(err => {
+    let errDiv = document.createElement('div');
+    errDiv.textContent = err;
+    submitErrorDiv.append(errDiv);
+  });
+}
+
+const checkForm = function(event) {
+  const inputs = getInputs();
   let errors = [];
 
   inputs.forEach(input => {
@@ -96,16 +101,21 @@ const checkForm = function(event) {
 
   if (errors.length > 0) {
     event.preventDefault();
-    errors.forEach(err => {
-      let errDiv = document.createElement('div');
-      errDiv.textContent = err;
-      submitErrorDiv.append(errDiv);
-    });
+    appendErrors(errors);
   } else {
     displayThankYou();
   }
 }
 
-form.addEventListener('submit', event => checkForm(event));
-// emailInput.addEventListener('input', checkValidity);
-inputs.forEach(input => input.addEventListener('input', checkValidity));
+const assignListeners = function() {
+  const form = getForm();
+
+  if (form) {
+    form.addEventListener('submit', event => checkForm(event));
+    // "change" listener will check only when 
+    // an input value is changed and the user has unfocused the input
+    // Was previously using "input" listener 
+    // which checked every time the input changed, even mid-typing
+    getInputs().forEach(input => input.addEventListener('change', checkValidity));
+  }
+}();
