@@ -73,7 +73,7 @@ const displayThankYou = function() {
   container.append(thankYouDiv);
 }
 
-const appendErrors = function(errors) {
+const displayErrors = function(errors) {
   const submitErrorDiv = clearErrorsDiv();
 
   errors.forEach(err => {
@@ -101,7 +101,7 @@ const checkForm = function(event) {
 
   if (errors.length > 0) {
     event.preventDefault();
-    appendErrors(errors);
+    displayErrors(errors);
   } else {
     displayThankYou();
   }
@@ -111,6 +111,8 @@ const assignListeners = function() {
   const form = getForm();
 
   if (form) {
+    // clear form inputs on page load / reload
+    form.reset();
     form.addEventListener('submit', event => checkForm(event));
     // "change" listener will check only when 
     // an input value is changed and the user has unfocused the input
